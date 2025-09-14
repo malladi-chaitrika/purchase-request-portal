@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Employee Portal - Purchase Request</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>Purchase Request - Employee Portal</h1>
+        <div id="welcomeMessage"></div>
+        <form id="requestForm">
+            <label>Department:</label><br/>
+            <select id="department" required>
+                <option value="">Select Department</option>
+                <option value="Administration">Administration</option>
+                <option value="it">it</option>
+                <option value="HR">HR</option>
+                <option value="Finance">Finance</option>
+            </select><br/>
+            <div id="itemsSection">
+                <h3>Items</h3>
+                <div class="itemRow">
+                    <input type="text" placeholder="Item Name" class="itemName" required />
+                    <input type="number" placeholder="Quantity" class="quantity" min="1" required />
+                    <input type="number" placeholder="Unit Cost" class="unitCost" min="0" required />
+                    <button type="button" onclick="removeItem(this)">Remove</button>
+                </div>
+            </div>
+            <button type="button" onclick="addItem()">Add Item</button><br/><br/>
+            <label>Business Justification:</label><br/>
+            <textarea id="justification" rows="3" required></textarea><br/>
+            <label>Expected Required Date:</label><br/>
+            <input type="date" id="requiredDate" required /><br/><br/>
+            <label>Total Estimated Cost:</label><br/>
+            <input type="text" id="totalCost" readonly /><br/><br/>
+            <button type="submit">Submit Request</button>
+        </form>
+        <h3>Your Requests</h3>
+        <div>
+            <button onclick="filterRequests('all')">All</button>
+            <button onclick="filterRequests('pending')">Pending</button>
+            <button onclick="filterRequests('approved')">Approved</button>
+            <button onclick="filterRequests('rejected')">Rejected</button>
+        </div>
+        <div id="requestsList"></div>
+    </div>
+</body>
+</html>
+

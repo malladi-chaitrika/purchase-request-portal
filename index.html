@@ -1,0 +1,40 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Login - Purchase Request Portal</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <input type="text" id="username" placeholder="Username" /><br/>
+        <input type="password" id="password" placeholder="Password" /><br/>
+        <button onclick="login()">Login</button>
+        <div id="message"></div>
+    </div>
+    <script>
+        const users = [
+            { username: "employee1", password: "emp123", role: "employee" },
+            { username: "supervisor1", password: "sup123", role: "supervisor" }
+        ];
+        function login() {
+            const username = document.getElementById("username").value.trim();
+            const password = document.getElementById("password").value.trim();
+            const message = document.getElementById("message");
+            const user = users.find(u => u.username === username && u.password === password);
+            if (user) {
+                localStorage.setItem("currentUser", JSON.stringify(user));
+                if (user.role === "employee") {
+                    window.location.href = "employee.html";
+                } else {
+                    window.location.href = "supervisor.html";
+                }
+            } else {
+                message.textContent = "Invalid password or username!";
+                message.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>

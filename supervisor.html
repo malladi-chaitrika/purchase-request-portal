@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Supervisor Portal - Purchase Requests</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>Supervisor Portal</h1>
+        <div id="welcomeMessage"></div>
+        <div>
+            <label>Filter by Department:</label>
+            <select id="filterDepartment" onchange="displayRequests()">
+                <option value="">All</option>
+                <option value="Administration">Administration</option>
+                <option value="IT">IT</option>
+                <option value="HR">HR</option>
+                <option value="Finance">Finance</option>
+            </select>
+            <label>Filter by Status:</label>
+            <select id="filterStatus" onchange="displayRequests()">
+                <option value="">All</option>
+                <option value="pending">Pending</option>
+                <option value="approved">Approved</option>
+                <option value="rejected">Rejected</option>
+            </select>
+        </div>
+        <div id="requestsList"></div>
+    </div>
+</body>
+</html>
